@@ -5,5 +5,7 @@ export function getNewStockPrice(name: string, value: number) {
 }
 
 export function getPriceSum(StockPrices: Record<string, StockPrice>) {
-    return Object.keys(StockPrices).reduce(((accumulator, currentValue) => StockPrices[accumulator].price + currentValue));
+    return Object.keys(StockPrices).reduce(((accumulator, currentValue) => {
+        return StockPrices[currentValue].price + accumulator
+    }), 0);
 }
